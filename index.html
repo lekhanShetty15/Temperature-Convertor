@@ -18,8 +18,8 @@
             <div class="time">
                 <span id="system-time"></span>
                 <div class="more-toogle">
-                    <i class="fa-solid fa-signal"></i><span>l</span>
-                    <i class="fa-solid fa-wifi"></i><span>l</span>
+                    <i class="fa-solid fa-signal signal"></i><span></span>
+                    <i class="fa-solid fa-wifi"></i><span></span>
                     <i class="fa-solid fa-battery-three-quarters "></i>
                 </div>
             </div>
@@ -34,7 +34,7 @@
         </div>
 
         <div class="section-1">
-            <p class="section-heading">Degrees</p>
+            <p class="section-heading">Celsius</p>
             <p class="section-heading1">Type</p>
         </div>
 
@@ -44,9 +44,11 @@
             <!-- <p class="dropdown">V</p> -->
             <i id="downArrow" class="fa-solid fa-caret-down fontdrop"></i>
             <div id="option" class="options">
-                <div class="option-value">Degree</div>
-                <div class="option-value">Celcius</div>
-                <div class="option-value">Farenhite</div>
+                <div class="option-value">Fahrenheit</div>
+                <div class="option-value">Kelvin</div>
+                <div class="option-value">Reaumur</div>
+                <div class="option-value">Rankine</div>
+
 
             </div>
         </div>
@@ -55,7 +57,13 @@
         </div>
         <div class="result-ans">
             <input id="final-ans" class="final-ans" type="text">
-            <button id="submit" class="submit-btn">Convert</button>
+            <div class="buttons">
+                <button id="submit" class="submit-btn">Convert</button>
+                <button id="refresh" class="refresh-btn">Refresh</button>
+
+            </div>
+           
+
         </div>
 
     </div>

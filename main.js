@@ -28,19 +28,31 @@ submit.addEventListener("click", () => {
   let selectedOption = txt1.value.toLowerCase();
   let result;
 
-  if (selectedOption === "degree") {
+  if (isNaN(inputVal)) {
+    alert("Please enter a valid number.");
+    return;
+  }
+
+  if (selectedOption === "celsius") {
     result = inputVal;
     console.log(result);
-  } else if (selectedOption === "celcius") {
-    result = (inputVal - 32) * (5 / 9);
+  } else if (selectedOption === "fahrenheit") {
+    result = (inputVal * 9/5) + 32;
     console.log(result);
-  } else if (selectedOption === "farenhite") {
-    result = inputVal * (9 / 5) + 32;
+  } else if (selectedOption === "kelvin") {
+    result = inputVal + 273.15;
+    console.log(result);
+  } else if (selectedOption === "reaumur") {
+    result = inputVal * 4/5;
+    console.log(result);
+  } else if (selectedOption === "rankine") {
+    result = (inputVal + 273.15) * 9/5;
     console.log(result);
   }
 
   finalans.value = result.toFixed(2);
 });
+
 
 function updateSystemTime() {
   let currentTime = new Date();
@@ -57,3 +69,32 @@ function updateSystemTime() {
 updateSystemTime();
 
 setInterval(updateSystemTime, 1000);
+
+
+
+
+txt.addEventListener("input", () => {
+  // Remove non-numeric characters except for hyphen and decimal points
+  txt.value = txt.value.replace(/[^\d.-]/g, '');
+
+  // If hyphen is present, ensure it's not repeated
+  if (txt.value.indexOf('-') !== -1) {
+    txt.value = txt.value.replace(/^-+/g, '-');
+  }
+
+  // Check if the input is not a valid number
+  if (isNaN(txt.value)) {
+    txt.classList.add("error");
+  } else {
+    txt.classList.remove("error");
+  }
+});
+
+let refreshBtn = document.getElementById("refresh");
+
+refreshBtn.addEventListener("click", () => {
+  txt.value = "";
+  txt1.value = "";
+  finalans.value = "";
+  txt.classList.remove("error");
+});
